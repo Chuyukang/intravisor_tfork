@@ -1,0 +1,5 @@
+build/*
+lkl_loader/*.o
+**/*.o
+**/*.img
+sleep

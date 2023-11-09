@@ -1,0 +1,31 @@
+---
+capfiles:
+- name: test1
+  size: 0x20
+  data: "Hello world\n"
+- name: test2
+  size: 0x1000
+
+---
+cVMs:
+- name: hello
+  runtime: libhello.so
+  isolation:
+  - base: 0x20000000
+    size: 0x10000000
+    begin: 0x20000000
+    end: 0x30000000
+  fork: 1
+  wait: -1
+  callback_out: monitor
+
+- name: hello2
+  runtime: libhello.so
+  isolation:
+  - base: 0x50000000
+    size: 0x10000000
+    begin: 0x50000000
+    end: 0x60000000
+  fork: 1
+  wait: -1
+  callback_out: monitor
